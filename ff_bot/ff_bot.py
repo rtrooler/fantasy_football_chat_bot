@@ -120,7 +120,7 @@ def random_phrase():
                'Hitler did nothing wrong.',
                'The Oracle is known for predicting the future.',
                'HIDE Calvin threads IGNORE Calvin posts DO NOT REPLY to Calvin.',
-               'CaCAW.',]
+               'CaCAW']
     return [random.choice(phrases)]
 
 def get_scoreboard_short(league, week=None):
