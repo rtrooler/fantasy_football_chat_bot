@@ -354,7 +354,7 @@ def bot_main(function):
     if text != '' and not test:
         bot.send_message(text)
         slack_bot.send_message(text)
-        discord_bot.send_message(text)
+        discord_bot.send_message(text) 
 
     if test:
         #print "get_final" function
@@ -398,7 +398,7 @@ if __name__ == '__main__':
         day_of_week='mon', hour=18, minute=30, start_date=ff_start_date, end_date=ff_end_date,
         timezone=game_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_final'], id='final',
-        day_of_week='tue', hour=7, minute=30, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='tue', hour=1, minute=30, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_scoreboard_short'], id='scoreboard1',
         day_of_week='fri,mon', hour=7, minute=30, start_date=ff_start_date, end_date=ff_end_date,
