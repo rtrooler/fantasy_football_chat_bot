@@ -104,22 +104,22 @@ def random_phrase():
                'Brock Walker won season 4, thus taking home the very first Regulation Trophy.',
                'Calvin Logan and Tyler Logan are the only two members of Regulation to be tried and convicted of misdemeanor collusion',
                'Chatty niggas sure pipe down after taking a few L\'s.',
-               'Team Most Points Against Trophy was created in remembrance of Cole Robertson\'s great team but many L\'s'
-               'The trophy race prize was once split due to a tie, later, rules would be changed for a one-tie-all-tie trophy race going forward.'
-               'Pay Me was in the finals for the first 3 seasons, he has never been back since.
-               'Cole Robertson became the first to win back to back Regulation Gold championships: Season 6 & 7.'
-               'Season 5 started the 14 man PPR format, previous seasons were standard scoring and 12 teams.
-               'Regulation Lite season 1 started in 2018 as a 10 man auction keeper league. Tyler Logan defeated Pay Me in the finals.'
-               'While the quote Pay Me is Pay Out is a meme.. it is also true! Pay Me has paid out more than he has won in Regulation leagues.'
-               'The worst record for any season is 0-13 by Darkness Loomerzzz in season 8.'
-               'The best record for any season is 11-2 from DawgTawn Beltrami Beast in season 3 and COOL WALL in season 4.'
-               'So far, the championship has only been won by the #1 or #2 seeds.'
-               'The first 3 games mean nothing, the last 3 games mean EVERYTHING!'
-               'Regulation Gold has had only one season that included every owner from the previous season.'
-               'In 2019, ESPN nuked their own website. Making it worse for everyone.'
-               'Hitler did nothing wrong.'
-               'The Oracle is known for predicting the future.'
-               'HIDE Calvin threads IGNORE Calvin posts DO NOT REPLY to Calvin.'
+               'Team Most Points Against Trophy was created in remembrance of Cole Robertson\'s great team but many L\'s',
+               'The trophy race prize was once split due to a tie, later, rules would be changed for a one-tie-all-tie trophy race going forward.',
+               'Pay Me was in the finals for the first 3 seasons, he has never been back since.,
+               'Cole Robertson became the first to win back to back Regulation Gold championships: Season 6 & 7.',
+               'Season 5 started the 14 man PPR format, previous seasons were standard scoring and 12 teams.,
+               'Regulation Lite season 1 started in 2018 as a 10 man auction keeper league. Tyler Logan defeated Pay Me in the finals.',
+               'While the quote Pay Me is Pay Out is a meme.. it is also true! Pay Me has paid out more than he has won in Regulation leagues.',
+               'The worst record for any season is 0-13 by Darkness Loomerzzz in season 8.',
+               'The best record for any season is 11-2 from DawgTawn Beltrami Beast in season 3 and COOL WALL in season 4.',
+               'So far, the championship has only been won by the #1 or #2 seeds.',
+               'The first 3 games mean nothing, the last 3 games mean EVERYTHING!',
+               'Regulation Gold has had only one season that included every owner from the previous season.',
+               'In 2019, ESPN nuked their own website. Making it worse for everyone.',
+               'Hitler did nothing wrong.',
+               'The Oracle is known for predicting the future.',
+               'HIDE Calvin threads IGNORE Calvin posts DO NOT REPLY to Calvin.',
                'CaCAW.']
     return [random.choice(phrases)]
 
