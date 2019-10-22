@@ -133,7 +133,17 @@ def random_phrase():
                'Hitler did nothing wrong.',
                'The Oracle is known for predicting the future.',
                'HIDE Calvin threads IGNORE Calvin posts DO NOT REPLY to Calvin.',
-               'CaCAW']
+               'CaCAW!',
+               'B-Ditty is Pout Out',
+               'Pay Me is Pay Out',
+               'The trade token used to be tradeable and used in negotiations for player trades.',
+               'Most requested owner for removal: Tyler Logan.',
+               'The Commish plans to welch payouts once they become high enough and worthy of theft, self destruct sequence activated...3..2.',
+               'It\'s never a good sign when we have to pray for a stat correction.',
+               'You can make the playoffs with 8 losses, it\'s been done before!',
+               'The purpose of the CPC is to give the illusion of democracy -Commish.',
+               '10% luck 100% skill.',
+               'Fer da sizzler.']
 
     return [random.choice(phrases)]
 
@@ -389,8 +399,11 @@ if __name__ == '__main__':
     #score update:                       sunday at 4pm, 8pm east coast time.
 
     sched.add_job(bot_main, 'cron', ['get_power_rankings'], id='power_rankings',
-        day_of_week='tue', hour=18, minute=30, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='tue,sat', hour=15, minute=30, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
+    sched.add_job(bot_main, 'cron', ['get_matchups'], id='matchups',
+        day_of_week='tue', hour=15, minute=31, start_date=ff_start_date, end_date=ff_end_date,
+        timezone=game_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_matchups'], id='matchups',
         day_of_week='thu', hour=19, minute=30, start_date=ff_start_date, end_date=ff_end_date,
         timezone=game_timezone, replace_existing=True)
