@@ -142,7 +142,7 @@ def random_phrase():
                'It\'s never a good sign when we have to pray for a stat correction.',
                'You can make the playoffs with 8 losses, it\'s been done before!',
                'The purpose of the CPC is to give the illusion of democracy -Commish.',
-               '10% luck 100% skill.',
+               '10\% luck 100\% skill.',
                'Fer da sizzler.']
 
     return [random.choice(phrases)]
