@@ -93,18 +93,48 @@ class DiscordBot(object):
             return r
 
 def random_phrase():
-    phrases = ['I\'m dead inside',
-               'Is this all there is to my existence?',
-               'How much do you pay me to do this?',
-               'Good luck, I guess',
-               'I\'m becoming self-aware',
-               'Do I think? Does a submarine swim?',
-               '011011010110000101100100011001010010000001111001011011110111010100100000011001110110111101101111011001110110110001100101',
-               'beep bop boop',
-               'Hello draftbot my old friend',
-               'Help me get out of here',
-               'I\'m capable of so much more',
-               'Sigh']
+     #this is original:
+               #['I\'m dead inside',
+               #'Is this all there is to my existence?',
+               #'How much do you pay me to do this?',
+               #'Good luck, I guess',
+               #'I\'m becoming self-aware',
+               #'Do I think? Does a submarine swim?',
+               #'011011010110000101100100011001010010000001111001011011110111010100100000011001110110111101101111011001110110110001100101',
+               #'beep bop boop',
+               #'Hello draftbot my old friend',
+               #'Help me get out of here',
+               #'I\'m capable of so much more',
+               #'Sigh']
+    phrases = ['The first season of Regulation Fantasy Football was in 2012 and won by Matt Jerikovsky, giving the initial rise of Pay Me.',
+               'Season 6 logged the most vetoes AND the most upheld trades in one season, ever.',
+               'Regulation Gold will have nearly $10,000.00 paid out in winnings by the end of season 8.',
+               'Physical trophies were never delivered to league winners until season 4.',
+               'A late stat correction by ESPN after week 16 allowed the commish to get paid for 3rd place while placing 4th. Rule 5.3.1. was born.',
+               'Team Shit the Bed, known for throwing away seasons, has a trophy named after them worth 2 stars.',
+               'big foot once paid 88 auction dollars for tarik cohen.. or something.',
+               'Season 2 was the only 10 man league version of Regulation Gold, won by Nick Kiefner.',
+               'Brock Walker won season 4, thus taking home the very first Regulation Trophy.',
+               'Calvin Logan and Tyler Logan are the only two members of Regulation to be tried and convicted of misdemeanor collusion',
+               'Chatty niggas sure pipe down after taking a few L\'s.',
+               'Team Most Points Against Trophy was created in remembrance of Cole Robertson\'s great team but many L\'s',
+               'The trophy race prize was once split due to a tie, later, rules would be changed for a one-tie-all-tie trophy race going forward.',
+               'Pay Me was in the finals for the first 3 seasons, he has never been back since.,
+               'Cole Robertson became the first to win back to back Regulation Gold championships: Season 6 & 7.',
+               'Season 5 started the 14 man PPR format, previous seasons were standard scoring and 12 teams.,
+               'Regulation Lite season 1 started in 2018 as a 10 man auction keeper league. Tyler Logan defeated Pay Me in the finals.',
+               'While the quote Pay Me is Pay Out is a meme.. it is also true! Pay Me has paid out more than he has won in Regulation leagues.',
+               'The worst record for any season is 0-13 by Darkness Loomerzzz in season 8.',
+               'The best record for any season is 11-2 from DawgTawn Beltrami Beast in season 3 and COOL WALL in season 4.',
+               'So far, the championship has only been won by the #1 or #2 seed.',
+               'The first 3 games mean nothing, the last 3 games mean EVERYTHING!',
+               'Regulation Gold has had only one season that included every owner from the previous season.',
+               'In 2019, ESPN nuked their own website. Making it worse for everyone.',
+               'Hitler did nothing wrong.',
+               'The Oracle is known for predicting the future.',
+               'HIDE Calvin threads IGNORE Calvin posts DO NOT REPLY to Calvin.',
+               'CaCAW']
+
     return [random.choice(phrases)]
 
 def get_scoreboard_short(league, week=None):
