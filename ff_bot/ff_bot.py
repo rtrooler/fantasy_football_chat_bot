@@ -163,7 +163,36 @@ def random_phrase():
                '-The Season 5 trophy, won by Calvin Logan, was misprinted. It\'s missing "season 5" and just displays: "Regulation".',
                '-Mornin niggers',
                '-Regulation Gold has had over 22 different members',
-               '-Reply to this post or your RB1 will break his leg tonight',]
+               '-Reply to this post or your RB1 will break his leg tonight',
+               '-What\'s a fantasy football league without some drama?',
+               '-Cash payouts for winning Regulation today is the same as winning season one 4.5 times',
+               '-I am only able to display archived records because of an error in the code.. please don\'t fix..',
+               '-Pro tip: If you say "Pay Me is Pay Out" 5 times he appears in an enraged form.',
+               '-Art Rooney says Bell will sign this week, Conner out concussed, Stars aligning?',
+               '-What would this league look like if Pay Me lost season one... hmm..',
+               '-If you don\'t have a trophy, did you even win?',
+               '-FUCK B2B',
+               '-It\'s difficult to win the trophy race without playing the eliminator league.. Just joining gives you 4 troph\'s!',
+               '-The idea of one high paying trophy, upwards of 10 stars, was discussed, but ultimately scrapped.',
+               '-16 Man PPR seems to be the future, but 14 is so sweet n juicy.',
+               '-The kicker position was removed in Season 8, along with the TE slot, replaced with WR/TE.',
+               '-Waivers process every Wednesday, Friday, Saturday, at 8pm Central.',
+               '-In season 8, the trophy race was ported over to an excel spreadsheet. One of the many sweeping changes ESPN blessed us with.',
+               '-FUCK NIGGA',
+               '-Nigger.. haha look mom i posted it again',
+               '-"See ya in august" was first coined by Shit the Bed, when he once again shit the bed.',
+               '-The CPC was made to protect the league from collus.... haha ha aww man I can\'t even type that without laughing.',
+               '-Season 8 made the change to give higher seeded teams a 5 point advantage in the playoffs, minus the championship.',
+               '-NEW YEAR, NEW COMMISH',
+               '-DOES IT BENEFIT THE COMMISH?',
+               '-It\'s confirmed impossible to make a trade with every player in the league in one season.. Try it, I dare ya.',
+               '-The Atlanta Falcons blew a 28-3 lead in the superbowl and lost.',
+               '-Don\'t even get me started on the GREAT TRADE RAPE.',
+               '-Man of the Week was a 2 trophy reward for one season.',
+               '-Error. Something went wrong.',
+               '-I QUIT!',
+               '-1 in the chat if you\'ve been in Regulation since season 1!',
+               '-Season 10 will be special.',]
 
     return [random.choice(phrases)]
 
@@ -177,21 +206,15 @@ def get_scoreboard_short(league, week=None):
     return '\n'.join(text)
 
 ######################################################################################################################
-
+#This does random messages
+#It displays twice, very janky code just copied above
 def get_randomsay(league, week=None):
-    #Gets current week's scoreboard
     box_scores = league.box_scores(week=week)
     score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, i.home_score,
              i.away_score, i.away_team.team_abbrev) for i in box_scores
              if i.away_team]
     text = ['From the archives:'] + random_phrase()
     return '\n'.join(text)
-
-
-
-
-
-
 
 ######################################################################################################################
 
@@ -469,7 +492,7 @@ if __name__ == '__main__':
     #s
     #s
     sched.add_job(bot_main, 'cron', ['get_randomsay'], id='randomsay',
-        day_of_week='wed', hour=9, minute=55, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='mon,tue,wed,thu,fri,sat', hour='10,14,19' start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     
     print("Ready!")
