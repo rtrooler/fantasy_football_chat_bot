@@ -153,7 +153,7 @@ def get_scoreboard_short(league, week=None):
     score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, i.home_score,
              i.away_score, i.away_team.team_abbrev) for i in box_scores
              if i.away_team]
-    text = ['Score Update'] + score + random_phrase()
+    text = ['Score Update'] + score
     return '\n'.join(text)
 
 def get_projected_scoreboard(league, week=None):
@@ -162,7 +162,7 @@ def get_projected_scoreboard(league, week=None):
     score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, get_projected_total(i.home_lineup),
                                     get_projected_total(i.away_lineup), i.away_team.team_abbrev) for i in box_scores
              if i.away_team]
-    text = ['Approximate Projected Scores'] + score + random_phrase()
+    text = ['Calculated ESPN Certified Future Projections'] + score + random_phrase()
     return '\n'.join(text)
 
 def get_projected_total(lineup):
@@ -218,7 +218,7 @@ def get_power_rankings(league, week=None):
 
     score = ['%s - %s' % (i[0], i[1].team_name) for i in power_rankings
              if i]
-    text = ['Power Rankings'] + score + random_phrase()
+    text = ['Calculating power rankings...'] + score + random_phrase()
     return '\n'.join(text)
 
 def get_trophies(league, week=None):
@@ -419,6 +419,12 @@ if __name__ == '__main__':
     sched.add_job(bot_main, 'cron', ['get_scoreboard_short'], id='scoreboard2',
         day_of_week='sun', hour='16,20', start_date=ff_start_date, end_date=ff_end_date,
         timezone=game_timezone, replace_existing=True)
-
+    #s
+    #s
+    #s
+    sched.add_job(bot_main, 'cron', ['get_trophies'], id='trophies',
+        day_of_week='tue', hour=23, minute=40, start_date=ff_start_date, end_date=ff_end_date,
+        timezone=my_timezone, replace_existing=True)
+    
     print("Ready!")
     sched.start()
