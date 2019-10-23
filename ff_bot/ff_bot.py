@@ -156,6 +156,16 @@ def random_phrase():
                '-John Thomas played one year in Regulation Gold.. He spent most of the time posting pictures of dicks in the groupme. Can\'t be unseen..']
 
     return [random.choice(phrases)]
+#
+#
+#
+def get_random_phrase():
+    text = random_phrase()
+ return '\n'.join(text)
+
+#
+#
+#
 
 def get_scoreboard_short(league, week=None):
     #Gets current week's scoreboard
@@ -433,7 +443,7 @@ if __name__ == '__main__':
     #s
     #s
     sched.add_job(bot_main, 'cron', ['get_random_phrase()'], id='phrase',
-        day_of_week='wed', hour=00, minute=46, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='wed', hour=00, minute=55, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     
     print("Ready!")
