@@ -119,7 +119,7 @@ def random_phrase():
                '-Chatty niggas sure pipe down after taking a few L\'s.',
                '-Team Most Points Against Trophy was created in remembrance of Cole Robertson\'s great team but many L\'s',
                '-The trophy race prize was once split due to a tie, later, rules would be changed for a one-tie-all-tie trophy race going forward.',
-               '-Pay Me was in the finals for the first 3 seasons, he has never been back since.',
+               '-Pay Me was in the finals for the first 3 seasons, he has never been back since',
                '-Cole Robertson became the first to win back to back Regulation Gold championships: Season 6 & 7.',
                '-Season 5 started the 14 man PPR format, previous seasons were standard scoring and 12 teams.',
                '-Regulation Lite season 1 started in 2018 as a 10 man auction keeper league. Tyler Logan defeated Pay Me in the finals.',
