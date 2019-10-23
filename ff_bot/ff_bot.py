@@ -226,10 +226,11 @@ def get_scoreboard_short(league, week=None):
 #This does random messages
 #It displays twice, very janky code just copied
 def get_randomsay(league, week=None):
-    #Gets current week's scoreboard projections
-    box_scores = league.box_scores(week=week)
-    score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, get_projected_total(i.home_lineup),
-                                    get_projected_total(i.away_lineup), i.away_team.team_abbrev) for i in box_scores
+    #Gets current week's Matchups
+    matchups = league.box_scores(week=week)
+
+    score = ['%s(%s-%s) vs %s(%s-%s)' % (i.home_team.team_name, i.home_team.wins, i.home_team.losses,
+             i.away_team.team_name, i.away_team.wins, i.away_team.losses) for i in matchups
              if i.away_team]
     text = ['From the archives:'] + random_phrase()
     return '\n'.join(text)
@@ -509,8 +510,8 @@ if __name__ == '__main__':
     #################################################################################################################################
     
     sched.add_job(bot_main, 'cron', ['get_randomsay'], id='randomsay',
-        day_of_week='wed', hour=15, minute=15, start_date=ff_start_date, end_date=ff_end_date,
-        timezone=my_timezone, replace_existing=True)
+        day_of_week='wed', hour=13, minute=21, start_date=ff_start_date, end_date=ff_end_date,
+        timezone=game_timezone, replace_existing=True)
     
     #################################################################################################################################
     
