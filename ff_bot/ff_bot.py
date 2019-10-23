@@ -159,7 +159,7 @@ def random_phrase():
 #
 #
 #
-def get_random_phrase():
+def get_random_phrase:
     text = random_phrase()
  return '\n'.join(text)
 
@@ -442,8 +442,8 @@ if __name__ == '__main__':
     #s
     #s
     #s
-    sched.add_job(bot_main, 'cron', ['get_random_phrase()'], id='phrase',
-        day_of_week='wed', hour=00, minute=55, start_date=ff_start_date, end_date=ff_end_date,
+    sched.add_job(bot_main, 'cron', ['get_random_phrase'], id='phrase',
+        day_of_week='wed', hour=00, minute=57, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     
     print("Ready!")
