@@ -497,7 +497,7 @@ if __name__ == '__main__':
     #################################################################################################################################
     
     sched.add_job(bot_main, 'cron', ['get_randomsay'], id='randomsay',
-        day_of_week='wed', hour=17, minute=57, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='wed', hour=18, minute=11, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
         
     #sched.add_job(bot_main, 'cron', ['get_final'], id='final',
