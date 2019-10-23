@@ -513,11 +513,11 @@ if __name__ == '__main__':
     #################################################################################################################################
     
     sched.add_job(bot_main, 'cron', ['get_randomsay'], id='randomsay',
-        day_of_week='mon,tue,wed,fri,sat', hour='11,15,19' minute=35, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='mon,tue,wed,fri,sat', hour='11,15,19', minute=35, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     
     sched.add_job(bot_main, 'cron', ['get_randomsay'], id='randomsay',
-        day_of_week='wed', hour='17,18,19' minute=18, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='wed', hour='17,18,19', minute=19, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
         
     #sched.add_job(bot_main, 'cron', ['get_final'], id='final',
