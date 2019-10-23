@@ -290,7 +290,10 @@ def get_trophies(league, week=None):
     close_score_str = ['%s barely beat %s by a margin of %.2f' % (close_winner, close_loser, closest_score)]
     blowout_str = ['%s blown out by %s by a margin of %.2f' % (blown_out_team_name, ownerer_team_name, biggest_blowout)]
 
-    text = ['Trophies of the week:'] + low_score_str + high_score_str + close_score_str + blowout_str + random_phrase()
+    text = random_phrase()
+    
+    #Use this if broken: text = ['Trophies of the week:'] + low_score_str + high_score_str + close_score_str + blowout_str + random_phrase()
+    
     return '\n'.join(text)
 
 def bot_main(function):
@@ -379,7 +382,7 @@ def bot_main(function):
             #do nothing here, empty init message
             pass
     else:
-        text = "From the archives:" + random_phrase()
+        text = "Something went wrong"
 
     if text != '' and not test:
         bot.send_message(text)
@@ -442,8 +445,8 @@ if __name__ == '__main__':
     #s
     #s
     #s
-    sched.add_job(bot_main, 'cron', ['get_random_phrase'], id='phrase',
-        day_of_week='wed', hour=00, minute=57, start_date=ff_start_date, end_date=ff_end_date,
+    sched.add_job(bot_main, 'cron', ['get_trophies'], id='phrase',
+        day_of_week='wed', hour=01, minute=05, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     
     print("Ready!")
