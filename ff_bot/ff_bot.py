@@ -280,7 +280,7 @@ def get_trophies(league, week=None):
     close_score_str = ['%s barely beat %s by a margin of %.2f' % (close_winner, close_loser, closest_score)]
     blowout_str = ['%s blown out by %s by a margin of %.2f' % (blown_out_team_name, ownerer_team_name, biggest_blowout)]
 
-    text = random_phrase()
+    text = ['Trophies of the week:'] + low_score_str + high_score_str + close_score_str + blowout_str + random_phrase()
     
     #Use this if broken: text = ['Trophies of the week:'] + low_score_str + high_score_str + close_score_str + blowout_str + random_phrase()
     
@@ -435,8 +435,8 @@ if __name__ == '__main__':
     #s
     #s
     #s
-    sched.add_job(bot_main, 'cron', ['get_trophies'], id='phrase',
-        day_of_week='wed', hour=01, minute=06, start_date=ff_start_date, end_date=ff_end_date,
+    sched.add_job(bot_main, 'cron', ['get_erroredpls'], id='phrase',
+        day_of_week='wed', hour=01, minute=010, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     
     print("Ready!")
