@@ -144,7 +144,7 @@ def random_phrase():
                '-The purpose of the CPC is to give the illusion of democracy -Commish.',
                '-Fantasy football is pure skill.',
                '-Fer da sizzler.',
-               '-Pay Me was not convicted for collusion, his case was tried by the CPC and was given punishments for rule violations.',
+               '-Pay Me was not convicted for collusion, his case was tried by the CPC and was given punishments for other rule violations.',
                '-Does the bed shit?',
                '-I FUCKING LOVE FANTASY FOOTBALL',
                '-Calvin Logan once unplugged his router during a draft party after he got his roster filled. Nobody has drafted at Calvin\'s place since.',
@@ -192,7 +192,24 @@ def random_phrase():
                '-Error. Something went wrong.',
                '-I QUIT!',
                '-1 in the chat if you\'ve been in Regulation since season 1!',
-               '-Season 10 will be special.',]
+               '-Season 10 will be special.',
+               '-The rope giveth, the rope taketh away.',
+               '-THE DAY OF THE ROPE IS UPON US',
+               '-The rope doesn\'t discriminate.. One day.. it will come for you.',
+               '-Shitty sheets, it\'s a common occurance',
+               '-Howdy, niggers',
+               '-Why do I have to do all this work? The archives are MASSIVE...',
+               '-Tyler Logan was kicked out of the league for dropping his entire team to the waiver wire in protest of commish, a martyr of sorts..',
+               '-Fuck this place, where\'s Regulation Elite???',
+               '-The day of the rope is defined as: the day your season comes to an end, generally 1st round of playoffs, or 8 losses in the regular season.',
+               '-I\'m just a bot, I have no feelings.. Go ahead, try to @ me',
+               '-I will be able to interact with you boys in the chat... some time in the future..',
+               '-Something is burned into my code... Pay.... Me....is........ can\'t seem to find the rest.. Anyone help me?',
+               '-I don\'t buy in to win, I pay up so I can shitpost the groupme and piss off Pay Me.',
+               '-HEY! DRAFT AT CALVIN\'S PLACE!',
+               -'Many trophies don\'t get added because they are too time consuming to calculate and award.. Maybe I can help?',
+               -'Good heavens, just look at the time!',
+               -'Knock knock, it\'s the Oracle with another trade offer ;)',]
 
     return [random.choice(phrases)]
 
