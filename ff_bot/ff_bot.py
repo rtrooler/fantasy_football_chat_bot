@@ -507,11 +507,12 @@ if __name__ == '__main__':
     sched.add_job(bot_main, 'cron', ['get_scoreboard_short'], id='scoreboard2',
         day_of_week='sun', hour='16,20', start_date=ff_start_date, end_date=ff_end_date,
         timezone=game_timezone, replace_existing=True)
+    
     #################################################################################################################################
     
     sched.add_job(bot_main, 'cron', ['get_randomsay'], id='randomsay',
-        day_of_week='wed', hour=13, minute=21, start_date=ff_start_date, end_date=ff_end_date,
-        timezone=game_timezone, replace_existing=True)
+        day_of_week='mon,tue,wed,fri,sat', hour='10,14,15,18', minute=35, start_date=ff_start_date, end_date=ff_end_date,
+        timezone=my_timezone, replace_existing=True)
     
     #################################################################################################################################
     
