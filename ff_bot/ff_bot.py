@@ -152,8 +152,18 @@ def random_phrase():
                '-Fuck the commish!',
                '-Every season I don\'t win is bullshit.',
                '-The CPC (rulebook) and data for Regulation Gold is in a 4.5MB package of 13 Folders and over 60 files',
-               '-Kamala Harris gave dome for D.A.,'
-               '-John Thomas played one year in Regulation Gold.. He spent most of the time posting pictures of dicks in the groupme. Can\'t be unseen..']
+               '-Kamala Harris gave dome for D.A.',
+               '-John Thomas played one year in Regulation Gold.. He spent most of the time posting pictures of dicks in the groupme. Can\'t be unseen..',
+               '-What part about see you in august don\'t you understand?',
+               '-Impeach!',
+               '-Please don\'t delete the groupme :(',
+               '-If you win the trophy, there\'s a strong chance it will be delivered by a Logan.',
+               '-I overheard the LMs discuss a 2 QB league once...',
+               '-Live draft in Vegas?',
+               '-The Season 5 trophy, won by Calvin Logan, was misprinted. It\'s missing "season 5" and just displays: "Regulation".',
+               '-Mornin niggers',
+               '-Regulation Gold has had over 22 different members',
+               '-Reply to this post or your RB1 will break his leg tonight',]
 
     return [random.choice(phrases)]
 
@@ -459,7 +469,7 @@ if __name__ == '__main__':
     #s
     #s
     sched.add_job(bot_main, 'cron', ['get_randomsay'], id='randomsay',
-        day_of_week='wed', hour=1, minute=29, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='wed', hour=10, minute=52, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     
     print("Ready!")
