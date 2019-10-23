@@ -359,6 +359,7 @@ def bot_main(function):
         print(get_close_scores(league))
         print(get_power_rankings(league))
         print(get_scoreboard_short(league))
+        print(get_randomsay(league))
         function="get_final"
         bot.send_message("Testing")
         slack_bot.send_message("Testing")
@@ -371,6 +372,9 @@ def bot_main(function):
     elif function=="get_scoreboard_short":
         text = get_scoreboard_short(league)
         text = text + "\n\n" + get_projected_scoreboard(league)
+    elif function=="get_randomsay":
+        text = get_randomsay(league)
+        text = text + "\n\n" + get_randomsay(league)
     elif function=="get_projected_scoreboard":
         text = get_projected_scoreboard(league)
     elif function=="get_close_scores":
@@ -455,7 +459,7 @@ if __name__ == '__main__':
     #s
     #s
     sched.add_job(bot_main, 'cron', ['get_randomsay'], id='randomsay',
-        day_of_week='wed', hour=1, minute=21, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='wed', hour=1, minute=29, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     
     print("Ready!")
