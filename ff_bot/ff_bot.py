@@ -222,19 +222,6 @@ def get_scoreboard_short(league, week=None):
     text = ['Score Update'] + score
     return '\n'.join(text)
 
-######################################################################################################################
-#This does random messages
-def get_randomsay(league, week=None):
-    #Gets current week's scoreboard
-    box_scores = league.box_scores(week=week)
-    score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, i.home_score,
-             i.away_score, i.away_team.team_abbrev) for i in box_scores
-             if i.away_team]
-    text = ['From the archives:'] + random_phrase()
-    return '\n'.join(text)
-
-######################################################################################################################
-
 def get_projected_scoreboard(league, week=None):
     #Gets current week's scoreboard projections
     box_scores = league.box_scores(week=week)
@@ -411,6 +398,7 @@ def bot_main(function):
         print(get_scoreboard_short(league))
         print(get_randomsay(league))
         function="get_final"
+        function="get_randomsay"
         bot.send_message("Testing")
         slack_bot.send_message("Testing")
         discord_bot.send_message("Testing")
@@ -422,9 +410,10 @@ def bot_main(function):
     elif function=="get_scoreboard_short":
         text = get_scoreboard_short(league)
         text = text + "\n\n" + get_projected_scoreboard(league)
+    if function=="get_randomsay":
+        text = random_phrase()
     elif function=="get_randomsay":
-        text = get_randomsay(league)
-        text = text + "\n\n" + get_randomsay(league)
+        text = random_phrase()
     elif function=="get_projected_scoreboard":
         text = get_projected_scoreboard(league)
     elif function=="get_close_scores":
@@ -497,7 +486,7 @@ if __name__ == '__main__':
         day_of_week='sun,mon', hour=18, minute=30, start_date=ff_start_date, end_date=ff_end_date,
         timezone=game_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_final'], id='final',
-        day_of_week='wed', hour=16, minute=25, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='tue', hour=1, minute=30, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_scoreboard_short'], id='scoreboard1',
         day_of_week='fri,mon', hour=7, minute=30, start_date=ff_start_date, end_date=ff_end_date,
@@ -508,9 +497,9 @@ if __name__ == '__main__':
     
     #################################################################################################################################
     
-    #sched.add_job(bot_main, 'cron', ['get_randomsay'], id='randomsay',
-        #day_of_week='tue,wed', hour=17, minute=15, start_date=ff_start_date, end_date=ff_end_date,
-        #timezone=my_timezone, replace_existing=True)
+    sched.add_job(bot_main, 'cron', ['get_randomsay'], id='randomsay',
+        day_of_week='wed', hour=16, minute=35, start_date=ff_start_date, end_date=ff_end_date,
+        timezone=my_timezone, replace_existing=True)
         
     #sched.add_job(bot_main, 'cron', ['get_final'], id='final',
         #day_of_week='tue', hour=1, minute=30, start_date=ff_start_date, end_date=ff_end_date,
