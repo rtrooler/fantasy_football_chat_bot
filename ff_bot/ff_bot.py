@@ -193,11 +193,34 @@ def random_phrase():
                '-Something is burned into my code... Pay.... Me....is........ can\'t seem to find the rest.. Anyone help me?',
                '-I don\'t buy in to win, I pay up so I can shitpost the groupme and piss off Pay Me.',
                '-HEY! DRAFT AT CALVIN\'S PLACE!',
-               -'Many trophies don\'t get added because they are too time consuming to calculate and award.. Maybe I can help?',
-               -'Good heavens, just look at the time!',
-               -'Knock knock, it\'s the Oracle with another trade offer ;)']
+               '-Many trophies don\'t get added because they are too time consuming to calculate and award.. Maybe I can help?',
+               '-Good heavens, just look at the time!',
+               '-Knock knock, it\'s the Oracle with another trade offer ;)',
+               '-Pay Me was in the finals for the first 3 seasons, he\'s never been back since.',
+               '-TUDDY',
+               '-Josh Keller is the only owner to have won a championship and later quit the league.',
+               '-Send studs, get duds. It\'s simple math.',
+               '-Wednesday night waivers can get a little wierd... I\'ve seen some things..',
+               '-Nobody has yet to win the championship and the trophy race in the same year.',
+               '-With this fisher price code, it\'s amazing this even works.',
+               '-If only..',
+               '-PURE SKILL'
+               '-Pay Me has always threatened to destroy this league by creating his own, and it\'s called Regulation Elite',
+               '-YOU SUCK AT FANTASY FOOTBALL',
+               '-My bench for your starters and we have a deal.']
     return [random.choice(phrases)]
+######################################FUCK AROUND HERE##########################################################################
 
+#def get_scoreboard_short(league, week=None):
+    #Gets current week's scoreboard
+    #box_scores = league.box_scores(week=week)
+    #score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, i.home_score,
+             #i.away_score, i.away_team.team_abbrev) for i in box_scores
+             #if i.away_team]
+    #text = ['Score Update'] + score
+    #return '\n'.join(text)
+
+######################################FUCK AROUND HERE##########################################################################
 def get_scoreboard_short(league, week=None):
     #Gets current week's scoreboard
     box_scores = league.box_scores(week=week)
@@ -213,7 +236,7 @@ def get_projected_scoreboard(league, week=None):
     score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, get_projected_total(i.home_lineup),
                                     get_projected_total(i.away_lineup), i.away_team.team_abbrev) for i in box_scores
              if i.away_team]
-    text = ['Approximate Projected Scores'] + score + random_phrase()
+    text = ['From the archives:'] + random_phrase()
     return '\n'.join(text)
 
 def get_projected_total(lineup):
@@ -269,7 +292,7 @@ def get_power_rankings(league, week=None):
 
     score = ['%s - %s' % (i[0], i[1].team_name) for i in power_rankings
              if i]
-    text = ['Power Rankings'] + score + random_phrase()
+    text = ['Power Rankings'] + score
     return '\n'.join(text)
 
 def get_trophies(league, week=None):
@@ -386,10 +409,8 @@ def bot_main(function):
     text = ''
     if function=="get_matchups":
         text = get_matchups(league)
-        text = text + "\n\n" + get_projected_scoreboard(league)
     elif function=="get_scoreboard_short":
         text = get_scoreboard_short(league)
-        text = text + "\n\n" + get_projected_scoreboard(league)
     elif function=="get_projected_scoreboard":
         text = get_projected_scoreboard(league)
     elif function=="get_close_scores":
@@ -449,6 +470,14 @@ if __name__ == '__main__':
     #score update:                       friday, monday, and tuesday morning at 7:30am local time.
     #score update:                       sunday at 4pm, 8pm east coast time.
 
+##################################THIS IS RANDOMSAY##############################################################################
+
+    sched.add_job(bot_main, 'cron', ['get_projected_scoreboard'], id='projected_scoreboards',
+        day_of_week='mon,tue,wed,thu,fri,sat', hour='11,14,17,20', minute=10, start_date=ff_start_date, end_date=ff_end_date,
+        timezone=my_timezone, replace_existing=True)
+
+##################################THIS IS RANDOMSAY##############################################################################
+
     sched.add_job(bot_main, 'cron', ['get_power_rankings'], id='power_rankings',
         day_of_week='tue,sat', hour=15, minute=30, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
@@ -456,16 +485,16 @@ if __name__ == '__main__':
         day_of_week='sun', hour=12, minute=55, start_date=ff_start_date, end_date=ff_end_date,
         timezone=game_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_matchups'], id='matchups',
-        day_of_week='tue,thu', hour=18, minute=30, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='tue,thu', hour=19, minute=30, start_date=ff_start_date, end_date=ff_end_date,
         timezone=game_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_close_scores'], id='close_scores',
         day_of_week='sun,mon', hour=18, minute=30, start_date=ff_start_date, end_date=ff_end_date,
         timezone=game_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_final'], id='final',
-        day_of_week='tue', hour=1, minute=30, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='tue', hour=11, minute=15, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_scoreboard_short'], id='scoreboard1',
-        day_of_week='fri,mon', hour=7, minute=30, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='thu,mon', hour=20, minute=5, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_scoreboard_short'], id='scoreboard2',
         day_of_week='sun', hour='16,20', start_date=ff_start_date, end_date=ff_end_date,
