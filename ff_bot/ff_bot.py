@@ -420,7 +420,7 @@ def bot_main(function):
     elif function=="get_scoreboard_short":
         text = get_scoreboard_short(league)
         text = text + "\n\n" + get_projected_scoreboard(league)
-    elif function=="get_randomsay":
+    elif function=="get_random_phrase":
         text = random_phrase()
     elif function=="get_projected_scoreboard":
         text = get_projected_scoreboard(league)
@@ -506,8 +506,8 @@ if __name__ == '__main__':
     #################################################################################################################################
     
     
-    sched.add_job(bot_main, 'cron', ['random_phrase()'], id='random_phrase()',
-        day_of_week='mon,tue,wed,thu,fri,sat', hour='10,14,18,19,20,21', minute=5, start_date=ff_start_date, end_date=ff_end_date,
+    sched.add_job(bot_main, 'cron', ['get_random_phrase'], id='random_phrase()',
+        day_of_week='mon,tue,wed,thu,fri,sat', hour='10,14,18,19,20,21', minute=9, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
         
     #sched.add_job(bot_main, 'cron', ['get_final'], id='final',
