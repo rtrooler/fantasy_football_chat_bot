@@ -225,9 +225,9 @@ def get_scoreboard_short(league, week=None):
 #TEST RANDOMSAY
 
 
-def get_randomsay(None, None):
-    text = random_phrase()
-    return '\n'.join(text)
+#def get_randomsay(None, None):
+    #text = random_phrase()
+    #return '\n'.join(text)
 
 
 ################################################################################################
@@ -506,8 +506,8 @@ if __name__ == '__main__':
     #################################################################################################################################
     
     
-    sched.add_job(bot_main, 'cron', ['get_randomsay'], id='randomsay',
-        day_of_week='mon,tue,wed,thu,fri,sat', hour='10,14,18,19,20,21', minute=1, start_date=ff_start_date, end_date=ff_end_date,
+    sched.add_job(bot_main, 'cron', ['random_phrase()'], id='random_phrase()',
+        day_of_week='mon,tue,wed,thu,fri,sat', hour='10,14,18,19,20,21', minute=5, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
         
     #sched.add_job(bot_main, 'cron', ['get_final'], id='final',
