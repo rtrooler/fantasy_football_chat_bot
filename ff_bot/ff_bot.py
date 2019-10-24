@@ -209,18 +209,7 @@ def random_phrase():
                '-YOU SUCK AT FANTASY FOOTBALL',
                '-My bench for your starters and we have a deal.']
     return [random.choice(phrases)]
-######################################FUCK AROUND HERE##########################################################################
 
-#def get_scoreboard_short(league, week=None):
-    #Gets current week's scoreboard
-    #box_scores = league.box_scores(week=week)
-    #score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, i.home_score,
-             #i.away_score, i.away_team.team_abbrev) for i in box_scores
-             #if i.away_team]
-    #text = ['Score Update'] + score
-    #return '\n'.join(text)
-
-######################################FUCK AROUND HERE##########################################################################
 def get_scoreboard_short(league, week=None):
     #Gets current week's scoreboard
     box_scores = league.box_scores(week=week)
@@ -230,6 +219,8 @@ def get_scoreboard_short(league, week=None):
     text = ['Score Update'] + score
     return '\n'.join(text)
 
+##################################THIS IS RANDOMSAY##############################################################################
+
 def get_projected_scoreboard(league, week=None):
     #Gets current week's scoreboard projections
     box_scores = league.box_scores(week=week)
@@ -238,6 +229,8 @@ def get_projected_scoreboard(league, week=None):
              if i.away_team]
     text = ['From the archives:'] + random_phrase()
     return '\n'.join(text)
+
+##################################THIS IS RANDOMSAY##############################################################################
 
 def get_projected_total(lineup):
     total_projected = 0
@@ -473,7 +466,7 @@ if __name__ == '__main__':
 ##################################THIS IS RANDOMSAY##############################################################################
 
     sched.add_job(bot_main, 'cron', ['get_projected_scoreboard'], id='projected_scoreboards',
-        day_of_week='mon,tue,wed,thu,fri,sat', hour='11,14,17,20', minute=10, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='mon,tue,wed,thu,fri,sat', hour='11,14,17,20', minute=20, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
 
 ##################################THIS IS RANDOMSAY##############################################################################
