@@ -93,19 +93,6 @@ class DiscordBot(object):
             return r
 
 def random_phrase():
-     #this is original:
-               #['I\'m dead inside',
-               #'Is this all there is to my existence?',
-               #'How much do you pay me to do this?',
-               #'Good luck, I guess',
-               #'I\'m becoming self-aware',
-               #'Do I think? Does a submarine swim?',
-               #'011011010110000101100100011001010010000001111001011011110111010100100000011001110110111101101111011001110110110001100101',
-               #'beep bop boop',
-               #'Hello draftbot my old friend',
-               #'Help me get out of here',
-               #'I\'m capable of so much more',
-               #'Sigh']
     phrases = ['-The first season of Regulation Fantasy Football was in 2012 and won by Matt Jerikovsky, giving the initial rise of Pay Me.',
                '-Season 6 logged the most vetoes AND the most upheld trades in one season, ever.',
                '-Regulation Gold will have nearly $10,000.00 paid out in winnings by the end of season 8.',
@@ -209,7 +196,6 @@ def random_phrase():
                -'Many trophies don\'t get added because they are too time consuming to calculate and award.. Maybe I can help?',
                -'Good heavens, just look at the time!',
                -'Knock knock, it\'s the Oracle with another trade offer ;)']
-
     return [random.choice(phrases)]
 
 def get_scoreboard_short(league, week=None):
@@ -221,29 +207,13 @@ def get_scoreboard_short(league, week=None):
     text = ['Score Update'] + score
     return '\n'.join(text)
 
-###############################################################################################
-#TEST RANDOMSAY
-
-
-#def get_random_phrase(league, week=None):
-    #matchups = league.box_scores(week=week)
-
-    #score = ['%s(%s-%s) vs %s(%s-%s)' % (i.home_team.team_name, i.home_team.wins, i.home_team.losses,
-             #i.away_team.team_name, i.away_team.wins, i.away_team.losses) for i in matchups
-             #if i.away_team]
-    #text = ['From the archive:'] + random_phrase()
-    #return '\n'.join(text)
-
-
-################################################################################################
-
 def get_projected_scoreboard(league, week=None):
     #Gets current week's scoreboard projections
     box_scores = league.box_scores(week=week)
     score = ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, get_projected_total(i.home_lineup),
                                     get_projected_total(i.away_lineup), i.away_team.team_abbrev) for i in box_scores
              if i.away_team]
-    text = ['Calculated ESPN Certified Future Projections'] + score + random_phrase()
+    text = ['Approximate Projected Scores'] + score + random_phrase()
     return '\n'.join(text)
 
 def get_projected_total(lineup):
@@ -299,7 +269,7 @@ def get_power_rankings(league, week=None):
 
     score = ['%s - %s' % (i[0], i[1].team_name) for i in power_rankings
              if i]
-    text = ['Calculating power rankings...'] + score + random_phrase()
+    text = ['Power Rankings'] + score + random_phrase()
     return '\n'.join(text)
 
 def get_trophies(league, week=None):
@@ -352,9 +322,6 @@ def get_trophies(league, week=None):
     blowout_str = ['%s blown out by %s by a margin of %.2f' % (blown_out_team_name, ownerer_team_name, biggest_blowout)]
 
     text = ['Trophies of the week:'] + low_score_str + high_score_str + close_score_str + blowout_str + random_phrase()
-    
-    #Use this if broken: text = ['Trophies of the week:'] + low_score_str + high_score_str + close_score_str + blowout_str + random_phrase()
-    
     return '\n'.join(text)
 
 def bot_main(function):
@@ -411,9 +378,7 @@ def bot_main(function):
         print(get_close_scores(league))
         print(get_power_rankings(league))
         print(get_scoreboard_short(league))
-        print(get_randomsay(league))
         function="get_final"
-        function="get_randomsay"
         bot.send_message("Testing")
         slack_bot.send_message("Testing")
         discord_bot.send_message("Testing")
@@ -425,8 +390,6 @@ def bot_main(function):
     elif function=="get_scoreboard_short":
         text = get_scoreboard_short(league)
         text = text + "\n\n" + get_projected_scoreboard(league)
-    elif function=="get_random_phrase":
-        text = random_phrase()
     elif function=="get_projected_scoreboard":
         text = get_projected_scoreboard(league)
     elif function=="get_close_scores":
@@ -447,16 +410,12 @@ def bot_main(function):
             #do nothing here, empty init message
             pass
     else:
-        text = "Something went wrong" + random_phrase()
+        text = "Something happened. HALP"
 
     if text != '' and not test:
         bot.send_message(text)
         slack_bot.send_message(text)
-        discord_bot.send_message(text) 
-        
-    elif text != 'Pay Me' and not test:
-        bot.send_message(text)
-        text = ['Pay Me is Pay Out']
+        discord_bot.send_message(text)
 
     if test:
         #print "get_final" function
@@ -511,19 +470,6 @@ if __name__ == '__main__':
     sched.add_job(bot_main, 'cron', ['get_scoreboard_short'], id='scoreboard2',
         day_of_week='sun', hour='16,20', start_date=ff_start_date, end_date=ff_end_date,
         timezone=game_timezone, replace_existing=True)
-    
-    #################################################################################################################################
-    
-    
-    sched.add_job(bot_main, 'cron', ['get_random_phrase'], id='random_phrase',
-        day_of_week='mon,tue,wed,thu,fri,sat', hour='10,14,18,19,20,21,22,23,24', minute=35, start_date=ff_start_date, end_date=ff_end_date,
-        timezone=my_timezone, replace_existing=True)
-        
-    #sched.add_job(bot_main, 'cron', ['get_final'], id='final',
-        #day_of_week='tue', hour=1, minute=30, start_date=ff_start_date, end_date=ff_end_date,
-        #timezone=my_timezone, replace_existing=True)
-    
-    #################################################################################################################################
-    
+
     print("Ready!")
     sched.start()
